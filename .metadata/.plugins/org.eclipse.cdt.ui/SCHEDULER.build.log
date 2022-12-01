@@ -1,0 +1,23 @@
+12:22:34 **** Incremental Build of configuration Debug for project SCHEDULER ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "SCHEDULER.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Lab4\SCHEDULER\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SCHEDULER.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SCHEDULER.elf
+ 
+arm-none-eabi-size   SCHEDULER.elf 
+arm-none-eabi-objdump -h -S  SCHEDULER.elf  > "SCHEDULER.list"
+arm-none-eabi-objcopy  -O ihex  SCHEDULER.elf  "SCHEDULER.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7396	     20	   2444	   9860	   2684	SCHEDULER.elf
+arm-none-eabi-objcopy  -O binary  SCHEDULER.elf  "SCHEDULER.bin"
+Finished building: default.size.stdout
+ 
+Finished building: SCHEDULER.bin
+Finished building: SCHEDULER.list
+Finished building: SCHEDULER.hex
+ 
+ 
+ 
+
+12:22:38 Build Finished. 0 errors, 0 warnings. (took 3s.565ms)
+

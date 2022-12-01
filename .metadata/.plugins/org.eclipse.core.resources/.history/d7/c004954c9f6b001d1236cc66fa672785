@@ -1,0 +1,18 @@
+/*
+ * scheduler.c
+ *
+ *  Created on: Nov 24, 2022
+ *      Author: HP
+ */
+
+#include "scheduler.h"
+
+void SCH_Init(void){
+	unsigned char i ;
+	for(i = 0; i < SCH_MAX_TASKS; i ++) {
+		SCH_Delete_Task ( i ) ;
+	}
+	Error_code_G = 0 ;
+	Timer_init();
+	Watchdog_init();
+}
